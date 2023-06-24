@@ -296,7 +296,7 @@ Plug 'majutsushi/tagbar', { 'on': 'TagbarOpenAutoClose' }
 
 " 错误检查
 Plug 'w0rp/ale'
-"cpp 成员函数生成
+"cpp 成员函数生成 <leader>PP 生成
 Plug 'derekwyatt/vim-protodef'
 Plug 'derekwyatt/vim-fswitch'
 " Auto Complete
@@ -380,7 +380,8 @@ Plug 'fadein/vim-FIGlet'
 "Plug 'junegunn/fzf.vim'
 Plug 'Yggdroot/LeaderF', { 'do': ':LeaderfInstallCExtension' }
 Plug 'brglng/vim-im-select'
-
+Plug 'tmux-plugins/vim-tmux-focus-events'
+Plug 'roxma/vim-tmux-clipboard'
 call plug#end()
 
 
@@ -537,8 +538,17 @@ let g:gutentags_ctags_extra_args += ['--c++-kinds=+pxI']
 let g:gutentags_ctags_extra_args += ['--c-kinds=+px']
 
 
+" 'derekwyatt/vim-protodef' 先复到剪切板再用<leader>PP生成定义
+" 'derekwyatt/vim-fswitch'<leader>of 
+nmap <silent> <Leader>of :FSHere<cr>
+nmap <silent> <A-o> :FSHere<cr>
+:let b:fswitchdst = 'cpp,cxx,C,cc'
+":let b:fswitchlocs = '../src,../source'
+" 设置 pullproto.pl 脚本路径
+let g:protodefprotogetter='~/.vim/plugged/vim-protodef/pullproto.pl'
+" 成员函数的实现顺序与声明顺序一致
+let g:disable_protodef_sorting=1
 
-"
 " ===
 " === You Complete ME
 " ===
