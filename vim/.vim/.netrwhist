@@ -1,0 +1,12 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhistcnt =8
+let g:netrw_dirhist_8='/home/gifter/hi3531a/osdrv/opensource'
+let g:netrw_dirhist_7='/home/gifter/vimfile/lzvim/lua/plugins'
+let g:netrw_dirhist_6='/home/gifter/.local/share/nvim/lazy/cppassist.nvim/lua/cppassist'
+let g:netrw_dirhist_5='/home/gifter/.local/share/nvim/lazy/cppassist.nvim/lua'
+let g:netrw_dirhist_4='/home/gifter/.local/share/nvim/lazy/cppassist.nvim'
+let g:netrw_dirhist_3='/home/gifter/dotfiles/nvim/lua/user/conf'
+let g:netrw_dirhist_2='/home/gifter/dotfiles/nvim/lua/user'
+let g:netrw_dirhist_1='/home/gifter/dotfiles/nvim/lua'
+let g:netrw_dirhist_0='/home/gifter/dotfiles/nvim'
+let g:netrw_dirhist_9='/home/gifter/dotfiles'
