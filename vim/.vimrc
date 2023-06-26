@@ -25,7 +25,9 @@ set whichwrap+=<,>,h,l   " 设置光标键跨行
 set ttimeoutlen=0        " 设置<ESC>键响应时间
 set virtualedit=block,onemore   " 允许光标出现在最后一个字符的后面
 set history=8192			      " 设置历史记录条数
-set clipboard+=unnamed       "共享剪贴板
+"共享剪贴板使用vim --version |grep clipboard查看是否支持
+"如果不支持,sudo apt install vim-gtk
+set clipboard+=unnamed       
 "set mouse=a               "使用鼠标
 
 set report=0        " 带有如下符号的单词不要被换行分割
@@ -112,8 +114,6 @@ nmap <leader>w :w!<cr>
 nmap <leader>f :find<cr>
 map R :source $MYVIMRC<CR>
 map ; :
-"vnoremap // y/<c-r>"<cr>        "v模式下用//搜索
-"nnoremap // yiw/<c-r>"<cr>        "v模式下用//搜索
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " 搜索+为下一个,-为上一个
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -123,8 +123,8 @@ noremap <LEADER><CR> :nohlsearch<CR> "取消高亮
 nmap Q :qa<CR>
 
 " 映射全选+复制 ctrl+a
-map <C-A> ggVGY
-map! <C-A> <Esc>ggVGY
+map <C-A> ggVG
+map! <C-A> <Esc>ggVG
 map <F12> gg=G
 
 " 选中状态下 Ctrl+c 复制
@@ -502,17 +502,6 @@ let g:NERDTreeGitSatusIndicatorMapCustom = {
     \ }
 
 
-" ===
-" === cpp成员函数生成vim-protodef
-" === 快捷键 <leader>PP <leader>PN
-let g:disable_protodef_sorting=1
-" 设置 pullproto.pl 脚本路径
-let g:protodefprotogetter='~/.vim/plugged/vim-protodef/pullproto.pl'
-" 成员函数的实现顺序与声明顺序一致
-let g:disable_protodef_sorting=1
-
-
-
 
 " ==
 " == gutentags
@@ -874,25 +863,19 @@ nnoremap <leader>fr  :<c-u>Leaderf! mru<cr>:setl nowrap<cr>
 
 "====
 "WSL
+if !empty(glob("/mnt/c"))
 let g:im_select_command = "/mnt/e/Software/im-select/im-select.exe"
 let g:im_select_default = "1033"
 let g:im_select_enable_focus_events = 0
 "退出插入模式时自动切换英文输入法
 autocmd InsertLeave * :silent !/mnt/e/Software/im-select/im-select.exe 1033
-"fcitx
-"vim.autoSwitchInputMethod.enable": true,
-"vim.autoSwitchInputMethod.defaultIM": "1",
-"vim.autoSwitchInputMethod.obtainIMCmd": "/usr/bin/fcitx-remote",
-"vim.autoSwitchInputMethod.switchIMCmd": "/usr/bin/fcitx-remote -t {im}",
+else
 "ibus
-"vim.autoSwitchInputMethod.enable": true,
-"vim.autoSwitchInputMethod.defaultIM": "xkb:us::eng",
-"vim.autoSwitchInputMethod.obtainIMCmd": "/usr/bin/ibus engine",
-"vim.autoSwitchInputMethod.switchIMCmd": "/usr/bin/ibus engine {im}"
-
-
-
-
+autocmd InsertLeave * :silent !/usr/bin/ibus engine xkb:us::eng 
+autocmd BufCreate * :silent !/usr/bin/ibus engine xkb:us::eng 
+autocmd BufEnter * :silent !/usr/bin/ibus engine xkb:us::eng 
+autocmd BufLeave * :silent !/usr/bin/ibus engine xkb:us::eng 
+endif
 
 
 " Add header comment for bash shell and python file automatically.
