@@ -89,13 +89,12 @@ au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " 快速移动
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"-- quick movement
-noremap J 5j
 " better up/down
 noremap <silent> <expr> j (v:count == 0 ? 'gj' : 'j')
-
 noremap <silent> <expr> k (v:count == 0 ? 'gk' : 'k')
 
+"-- quick movement
+noremap J 5j
 nnoremap K 5k
 nnoremap H 0
 nnoremap L $
@@ -103,7 +102,7 @@ nnoremap L $
 nnoremap dL d$
 nnoremap dH d0
 
-nnoremap ; :)
+nnoremap ; :
 nnoremap Q :q!<enter>
 nnoremap < <<
 nnoremap > >>
@@ -113,7 +112,6 @@ map <c-s> :w<CR>
 nmap <leader>w :w!<cr>
 nmap <leader>f :find<cr>
 map R :source $MYVIMRC<CR>
-map ; :
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " 搜索+为下一个,-为上一个
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -191,7 +189,8 @@ map <C-l> <C-w>l
 map <C-k> <C-w>k
 map <C-h> <C-w>h
 map <C-j> <C-w>j
-tnoremap <M-q> <c-\><c-n>
+tnoremap <ESC> <c-\><c-n>
+tnoremap <c-q> <c-w>:hide<cr>
 tnoremap <C-l> <C-w>l
 tnoremap <C-k> <C-w>k
 tnoremap <C-h> <C-w>h
@@ -371,7 +370,6 @@ Plug 'kshenoy/vim-signature'
 
 " Other useful utilities
 Plug 'terryma/vim-multiple-cursors'
-Plug 'junegunn/goyo.vim' " distraction free writing mode
 Plug 'tpope/vim-surround' " type ysks' to wrap the word with '' or type cs'` to change 'word' to `word`
 Plug 'godlygeek/tabular' " type ;Tabularize /= to align the =
 Plug 'gcmt/wildfire.vim' " in Visual mode, type i' to select all text in '', or type i) i] i} ip
@@ -676,11 +674,6 @@ let g:multi_cursor_next_key='<C-n>'
 let g:multi_cursor_prev_key='<C-p>'
 let g:multi_cursor_skip_key='<C-x>'
 let g:multi_cursor_quit_key='<Esc>'
-" ===
-" ===
-" === Goyo
-" ===
-map <LEADER>gy :Goyo<CR>
 
 
 " ===
