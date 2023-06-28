@@ -191,6 +191,11 @@ map <C-l> <C-w>l
 map <C-k> <C-w>k
 map <C-h> <C-w>h
 map <C-j> <C-w>j
+tnoremap <M-q> <c-\><c-n>
+tnoremap <C-l> <C-w>l
+tnoremap <C-k> <C-w>k
+tnoremap <C-h> <C-w>h
+tnoremap <C-j> <C-w>j
 map <up> :res +5<CR>
 map <down> :res -5<CR>
 map <left> :vertical resize-5<CR>
@@ -465,13 +470,10 @@ autocmd VimEnter * if argc() == 0 && !exists('s:std_in') && v:this_session == ''
 let NERDTreeMapOpenExpl = ""
 let NERDTreeMapUpdir = "u"
 let NERDTreeMapUpdirKeepOpen = "l"
-let NERDTreeMapOpenSplit = "s"
 let NERDTreeMapOpenVSplit = "v"
-let NERDTreeMapActivateNode = "i"
-let NERDTreeMapOpenInTab = "o"
 let NERDTreeMapCloseDir = "n"
 let NERDTreeMapChangeRoot = "y"
-let NERDTreeCustomOpenArgs = {'file': {'reuse':'currenttab', 'where':'p', 'keepopen':1, 'stay':1}}
+let NERDTreeCustomOpenArgs = {'file': {'reuse':'currenttab', 'where':'p', 'keepopen':1, 'stay':0}}
 
 
 
@@ -869,7 +871,7 @@ let g:im_select_default = "1033"
 let g:im_select_enable_focus_events = 0
 "退出插入模式时自动切换英文输入法
 autocmd InsertLeave * :silent !/mnt/e/Software/im-select/im-select.exe 1033
-else
+elseif !empty(glob("/mnt/public"))
 "ibus
 autocmd InsertLeave * :silent !/usr/bin/ibus engine xkb:us::eng 
 autocmd BufCreate * :silent !/usr/bin/ibus engine xkb:us::eng 
