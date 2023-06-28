@@ -5,3 +5,6 @@ vim.opt.spelllang = { "en", "cjk" }
 vim.opt.spelloptions = "camel"
 vim.opt.wrap = true
 vim.opt.backup = false
+vim.opt.foldmethod = "indent"
+vim.opt.foldenable = false -- 禁用折叠代码
+vim.opt.foldlevel = 99

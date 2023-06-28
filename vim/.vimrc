@@ -129,7 +129,7 @@ map <F12> gg=G
 
 " 选中状态下 Ctrl+c 复制
 vmap <C-c> "+y
-
+vmap p "_dP
 "去空行
 "nnoremap <F2> :%s/\s\+$//g<CR>
 nnoremap <F2> :g/^\s*$/d<CR>
