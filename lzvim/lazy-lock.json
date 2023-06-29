@@ -25,6 +25,7 @@
   "mini.comment": { "branch": "main", "commit": "877acea5b2a32ff55f808fc0ebe9aa898648318c" },
   "mini.indentscope": { "branch": "main", "commit": "f60e9b51a6214c73a170ffc5445ce91560981031" },
   "mini.pairs": { "branch": "main", "commit": "963b800d0524eadd297199207011b98684205ada" },
+  "mini.surround": { "branch": "main", "commit": "14f418209ecf52d1a8de9d091eb6bd63c31a4e01" },
   "neo-tree.nvim": { "branch": "v2.x", "commit": "d883632bf8f92f1d5abea4a9c28fb2f90aa795aa" },
   "neoconf.nvim": { "branch": "main", "commit": "bf802bff605d439f0403d55d83e8f6bf7247fce8" },
   "neodev.nvim": { "branch": "main", "commit": "d69254e1fbdc4a04c56719dde19e5eafb7b04b58" },
@@ -47,10 +48,8 @@
   "trouble.nvim": { "branch": "main", "commit": "2af0dd9767526410c88c628f1cbfcb6cf22dd683" },
   "vim-illuminate": { "branch": "master", "commit": "a2907275a6899c570d16e95b9db5fd921c167502" },
   "vim-im-select": { "branch": "master", "commit": "706d05e5c92aa048f5baa01b03f3822869c913de" },
-  "vim-interestingwords": { "branch": "master", "commit": "e59f97aca15c6180e6f3aceaf4f7b50ca04326ed" },
   "vim-repeat": { "branch": "master", "commit": "24afe922e6a05891756ecf331f39a1f6743d3d5a" },
   "vim-startuptime": { "branch": "master", "commit": "454b3de856b7bd298700de33d79774ca9b9e3875" },
-  "vim-surround": { "branch": "master", "commit": "3d188ed2113431cf8dac77be61b842acb64433d9" },
   "vim-tmux-navigator": { "branch": "master", "commit": "cdd66d6a37d991bba7997d593586fc51a5b37aa8" },
   "which-key.nvim": { "branch": "main", "commit": "e271c28118998c93a14d189af3395812a1aa646c" }
 }
