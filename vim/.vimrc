@@ -322,65 +322,47 @@ Plug 'ludovicchabant/vim-gutentags'        "异步自动生成tags
 "
 "installing.....
 
-"语法检查
-"Plug 'scrooloose/syntastic'
 Plug 'Lokaltog/vim-easymotion'
-"让 syntastic忽略  文件
-"let g:syntastic_ignore_files=[".*\.py$"]
 
 " Undo Tree
-Plug 'mbbill/undotree/'		" 以树形的方式浏览文件的修改历史
+Plug 'mbbill/undotree'		" 以树形的方式浏览文件的修改历史
 
 " Other visual enhancement
 Plug 'nathanaelkane/vim-indent-guides' "显示缩进线
 Plug 'itchyny/vim-cursorword'      "在当前光标的单词加下划线
 Plug 'machakann/vim-highlightedyank' "高亮复制
-"Plug 'lfv89/vim-interestingwords'   "高亮<leader>k单词，<leader>K取消，N/n移动
 
 " Git
-Plug 'rhysd/conflict-marker.vim'
-Plug 'tpope/vim-fugitive'
-Plug 'mhinz/vim-signify'
-Plug 'gisphm/vim-gitignore', { 'for': ['gitignore', 'vim-plug'] }
+""Plug 'rhysd/conflict-marker.vim'
+""Plug 'tpope/vim-fugitive'
+""Plug 'mhinz/vim-signify'
+""Plug 'gisphm/vim-gitignore', { 'for': ['gitignore', 'vim-plug'] }
 Plug 'christoomey/vim-tmux-navigator'
-" HTML, CSS, JavaScript, PHP, JSON, etc.
-"Plug 'elzr/vim-json'
-"Plug 'hail2u/vim-css3-syntax'
-"Plug 'spf13/PIV', { 'for' :['php', 'vim-plug'] }
-"lug 'gko/vim-coloresque', { 'for': ['vim-plug', 'php', 'html', 'javascript', 'css', 'less'] }
-"lug 'pangloss/vim-javascript', { 'for' :['javascript', 'vim-plug'] }
-"lug 'mattn/emmet-vim'
 
-" Python
-"lug 'vim-scripts/indentpython.vim'
 
 " Markdown在wsl中使用/etc/wsl.conf 
 " [interop]
 "enabled = true
 "appendWindowsPath = true
 "Plug 'iamcco/mathjax-support-for-mkdp'
-Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
-"Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install' }
-Plug 'dhruvasagar/vim-table-mode', { 'on': 'TableModeToggle' }
-"Plug 'vimwiki/vimwiki'
+"Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
+""Plug 'dhruvasagar/vim-table-mode', { 'on': 'TableModeToggle' }
 
 " Bookmark 此插件增强 Vim 的书签功能
 " m/ 打开列表 :SignatureToggle 显示书签 :SignatureRefresh 刷新
 Plug 'kshenoy/vim-signature'
 
 " Other useful utilities
-Plug 'terryma/vim-multiple-cursors'
-Plug 'tpope/vim-surround' " type ysks' to wrap the word with '' or type cs'` to change 'word' to `word`
-Plug 'godlygeek/tabular' " type ;Tabularize /= to align the =
-Plug 'gcmt/wildfire.vim' " in Visual mode, type i' to select all text in '', or type i) i] i} ip
-Plug 'scrooloose/nerdcommenter' " in <space>cc to comment a line
+""Plug 'mg979/vim-visual-multi',{ 'branch':'master' } "多行编辑<C-n>选择单词，C-up,C-down上下，
+Plug 'tpope/vim-surround' "文本添加ysiw( 括号,引号
+"Plug 'godlygeek/tabular' " :Tab/= 以=等号对对齐
+"Plug 'gcmt/wildfire.vim' " 快速选择文本，在V模式下, 按i'选择''包含的文本,  i) i] i} ip
+Plug 'scrooloose/nerdcommenter' "<space>cc注释
 
 " Dependencies
 Plug 'MarcWeber/vim-addon-mw-utils'
 Plug 'kana/vim-textobj-user'
 Plug 'fadein/vim-FIGlet'
-"Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
-"Plug 'junegunn/fzf.vim'
 Plug 'Yggdroot/LeaderF', { 'do': ':LeaderfInstallCExtension' }
 Plug 'brglng/vim-im-select'
 Plug 'tmux-plugins/vim-tmux-focus-events'
@@ -572,7 +554,6 @@ let g:ycm_goto_buffer_command = 'same-buffer'
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "其他东东
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
 " minibufexpl插件的一般设置
 let g:miniBufExplMapWindowNavVim = 1
 let g:miniBufExplMapWindowNavArrows = 1
@@ -669,14 +650,6 @@ autocmd WinEnter * silent! unmap <LEADER>ig
 
 
 " ===
-"  Multip Cursor
-let g:multi_cursor_next_key='<C-n>'
-let g:multi_cursor_prev_key='<C-p>'
-let g:multi_cursor_skip_key='<C-x>'
-let g:multi_cursor_quit_key='<Esc>'
-
-
-" ===
 " === vim-signiture
 " ===
 let g:SignatureMap = {
@@ -702,23 +675,6 @@ let g:SignatureMap = {
         \ 'ListLocalMarks'     :  "m/",
         \ 'ListLocalMarkers'   :  "m?"
         \ }
-" ===
-" === syntastic 语法检查
-" ===
-" 
-"let g:syntastic_always_populate_loc_list = 1
-"let g:syntastic_auto_loc_list = 1
-"let g:syntastic_check_on_wq = 0
-"let g:syntastic_mode_map = {
-    "\ 'mode': 'passive',
-    "\ 'active_filetypes': [],
-    "\ 'passive_filetypes': []
-"\}
-"nnoremap <Leader>s :SyntasticCheck<CR>
-"nnoremap <Leader>r :SyntasticReset<CR>
-"nnoremap <Leader>i :SyntasticInfo<CR>
-"nnoremap <Leader>m :SyntasticToggleMode<CR>
- 
 
 " ===
 " === Undotree 撤消
@@ -828,27 +784,6 @@ nnoremap <leader>fh/ :<c-u>Leaderf searchHistory --fuzzy<cr>
 "【最近使用】文件列表
 nnoremap <leader>fr  :<c-u>Leaderf! mru<cr>:setl nowrap<cr>
 "}}
-" ===
-" === fzf 查找
-" ===
-"<Leader>f在当前目录搜索文件
-"nnoremap <silent> <Leader>ff :Files<CR>
-"<Leader>fg在当前目录搜索文件
-"nnoremap <silent> <Leader>fg :Rg <C-R><C-W><CR>
-"xnoremap <silent> <Leader>fg y :Rg <C-r>"<CR>
-"<Leader>b切换Buffer中的文件
-"nnoremap <silent> <Leader>fb :Buffers<CR>
-"<Leader>p在当前所有加载的Buffer中搜索包含目标词的所有行，:BLines只在当前Buffer中搜索
-"nnoremap <silent> <Leader>fp :Lines<CR>
-"<Leader>h在Vim打开的历史文件中搜索，相当于是在MRU中搜索，:History：命令历史查找
-"nnoremap <silent> <Leader>fh :History<CR>
-"调用Rg进行搜索，包含隐藏文件
-"command! -bang -nargs=* Rg
-"  \ call fzf#vim#grep(
-"  \   'rg --column --line-number --no-heading --color=always --smart-case --hidden '.shellescape(<q-args>), 1,
-"  \   <bang>0 ? fzf#vim#with_preview('up:60%')
-"  \           : fzf#vim#with_preview('right:50%:hidden', '?'),
-"  \   <bang>0)
 
 
 "=====
