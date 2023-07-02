@@ -132,7 +132,9 @@ noremap Y "+yy
 vmap p "_dP
 "去空行
 "nnoremap <F2> :%s/\s\+$//g<CR>
-nnoremap <F2> :g/^\s*$/d<CR>
+"nnoremap <F2> :g/^\s*$/d<CR>
+"去M结尾
+nnoremap <F2> :%s/\r\\g
 
 "比较文件
 nnoremap <F3> :vert diffsplit
