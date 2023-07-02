@@ -358,6 +358,7 @@ Plug 'kshenoy/vim-signature'
 " Other useful utilities
 ""Plug 'mg979/vim-visual-multi',{ 'branch':'master' } "多行编辑<C-n>选择单词，C-up,C-down上下，
 Plug 'tpope/vim-surround' "文本添加ysiw( 括号,引号
+Plug 'tpope/vim-repeat' "文本添加ysiw( 括号,引号
 "Plug 'godlygeek/tabular' " :Tab/= 以=等号对对齐
 "Plug 'gcmt/wildfire.vim' " 快速选择文本，在V模式下, 按i'选择''包含的文本,  i) i] i} ip
 Plug 'scrooloose/nerdcommenter' "<space>cc注释
@@ -826,10 +827,19 @@ let g:switch_custom_definitions =
 \		switch#NormalizedCase([ '>=', '<=' ]),
 \		switch#NormalizedCase([ '==', '!=' ]),
 \		switch#NormalizedCase([ '&&', '||' ]),
+\		switch#NormalizedCase([ 'push', 'pop' ]),
 \	]
-
-
-
+"驼峰和下划线切换
+let b:switch_custom_definitions = [
+      \   {
+      \     '\<[a-z0-9]\+_\k\+\>': {
+      \       '_\(.\)': '\U\1'
+      \     },
+      \     '\<[a-z0-9]\+[A-Z]\k\+\>': {
+      \       '\([A-Z]\)': '_\l\1'
+      \     },
+      \   }
+      \ ]
 " Add header comment for bash shell and python file automatically.
 autocmd BufNewFile *.sh,*.py,*.h,*.c,*.cpp exec ":call SetTitle()"
 func SetTitle()
