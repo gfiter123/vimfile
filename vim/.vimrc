@@ -102,7 +102,6 @@ nnoremap L $
 nnoremap dL d$
 nnoremap dH d0
 
-nnoremap ; :
 nnoremap Q :q!<enter>
 nnoremap < <<
 nnoremap > >>
@@ -134,7 +133,7 @@ vmap p "_dP
 "nnoremap <F2> :%s/\s\+$//g<CR>
 "nnoremap <F2> :g/^\s*$/d<CR>
 "去M结尾
-nnoremap <F2> :%s/\r\\g
+nnoremap <F2> :%s/\r//g<CR>
 
 "比较文件
 nnoremap <F3> :vert diffsplit
@@ -371,6 +370,7 @@ Plug 'Yggdroot/LeaderF', { 'do': ':LeaderfInstallCExtension' }
 Plug 'brglng/vim-im-select'
 Plug 'tmux-plugins/vim-tmux-focus-events'
 Plug 'roxma/vim-tmux-clipboard'
+Plug 'AndrewRadev/switch.vim'
 call plug#end()
 
 
@@ -810,6 +810,24 @@ autocmd BufCreate * :silent !/usr/bin/ibus engine xkb:us::eng
 autocmd BufEnter * :silent !/usr/bin/ibus engine xkb:us::eng 
 autocmd BufLeave * :silent !/usr/bin/ibus engine xkb:us::eng 
 endif
+
+nnoremap ;s :Switch<CR>
+let g:switch_custom_definitions =
+\[
+\	switch#NormalizedCase([ 'true', 'false']),
+\		switch#NormalizedCase([ 'on', 'off' ]),
+\		switch#NormalizedCase([ 'yes', 'no' ]),
+\		switch#NormalizedCase([ 'disable', 'enable' ]),
+\		switch#NormalizedCase([ 'up', 'down' ]),
+\		switch#NormalizedCase([ 'top', 'bottom' ]),
+\		switch#NormalizedCase([ 'left', 'right' ]),
+\		switch#NormalizedCase([ '+', '-' ]),
+\		switch#NormalizedCase([ '>', '<' ]),
+\		switch#NormalizedCase([ '>=', '<=' ]),
+\		switch#NormalizedCase([ '==', '!=' ]),
+\		switch#NormalizedCase([ '&&', '||' ]),
+\	]
+
 
 
 " Add header comment for bash shell and python file automatically.
