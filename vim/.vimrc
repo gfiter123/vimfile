@@ -334,13 +334,13 @@ Plug 'mbbill/undotree'		" 以树形的方式浏览文件的修改历史
 Plug 'nathanaelkane/vim-indent-guides' "显示缩进线
 Plug 'itchyny/vim-cursorword'      "在当前光标的单词加下划线
 Plug 'machakann/vim-highlightedyank' "高亮复制
+Plug 'christoomey/vim-tmux-navigator'
 
 " Git
 ""Plug 'rhysd/conflict-marker.vim'
 ""Plug 'tpope/vim-fugitive'
 ""Plug 'mhinz/vim-signify'
 ""Plug 'gisphm/vim-gitignore', { 'for': ['gitignore', 'vim-plug'] }
-Plug 'christoomey/vim-tmux-navigator'
 
 
 " Markdown在wsl中使用/etc/wsl.conf 
@@ -368,7 +368,9 @@ Plug 'MarcWeber/vim-addon-mw-utils'
 Plug 'kana/vim-textobj-user'
 Plug 'fadein/vim-FIGlet'
 Plug 'Yggdroot/LeaderF', { 'do': ':LeaderfInstallCExtension' }
+if !empty(glob("/mnt/c")) ||!empty(glob("/mnt/public")) 
 Plug 'brglng/vim-im-select'
+endif
 Plug 'tmux-plugins/vim-tmux-focus-events'
 Plug 'roxma/vim-tmux-clipboard'
 Plug 'AndrewRadev/switch.vim'
