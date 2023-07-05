@@ -20,7 +20,7 @@ set relativenumber      " 显示光标所在的当前行的行号，其他行都
 set wrap                "自动折行
 set wrapmargin=2        "自动折行右边空格
 "set linebreak           "遇到空格才折行
-"set cursorline           " 高亮显示当前行
+set cursorline           " 高亮显示当前行
 set whichwrap+=<,>,h,l   " 设置光标键跨行
 set ttimeoutlen=0        " 设置<ESC>键响应时间
 set virtualedit=block,onemore   " 允许光标出现在最后一个字符的后面
@@ -64,19 +64,30 @@ set tabstop=2            " 设置编辑时制表符占用空格数
 set shiftwidth=2         " 设置格式化时制表符占用空格数
 set softtabstop=2        " 设置4个空格为制表符
 set smarttab             " 在行和段开始处使用制表符
-"set nowrap               " 禁止折行
 set backspace=2          " 使用回车键正常处理indent,eol,start等
 set sidescroll=10        " 设置向右滚动字符数
 set scrolloff=5
-set nofoldenable         " 禁用折叠代码
 set tw=0
 set indentexpr=
 set backspace=indent,eol,start            "退格键 实现光标移动到行尾
-set foldmethod=indent                     "收代码
-set foldlevel=99
-let &t_SI = "\<Esc>]50;CursorShape=1\x7"    " 以下三行可以使vim的光标在普通模式和写入模式下有不同的光标样式
-let &t_SR = "\<Esc>]50;CursorShape=2\x7"
-let &t_EI = "\<Esc>]50;CursorShape=0\x7"
+
+"以下三行可以使vim的光标在普通模式和写入模式下有不同的光标样式
+let &t_SI.="\e[5 q" "SI = INSERT mode
+let &t_SR.="\e[4 q" "SR = REPLACE mode
+let &t_EI.="\e[1 q" "EI = NORMAL mode (ELSE)
+"Cursor settings:
+"  1 -> blinking block
+"  2 -> solid block
+"  3 -> blinking underscore
+"  4 -> solid underscore
+"  5 -> blinking vertical bar
+"  6 -> solid vertical bar
+"let &t_SI = "\<Esc>]50;CursorShape=1\x7"
+"let &t_SR = "\<Esc>]50;CursorShape=2\x7"
+"let &t_EI = "\<Esc>]50;CursorShape=0\x7"
+
+
+
 set laststatus=2
 set nobackup
 set cmdheight=2
@@ -223,7 +234,10 @@ if &term =~ '^screen'
   " tmux knows the extended mouse mode
   set ttymouse=xterm2
 endif
-set nofoldenable " disable folding by default
+"折叠代码
+set nofoldenable         " 禁用折叠代码
+set foldmethod=indent                     "收代码
+set foldlevel=99
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
