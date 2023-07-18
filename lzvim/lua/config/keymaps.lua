@@ -6,3 +6,4 @@ keymap.set("n", "<leader>uI", "<cmd>IlluminateToggle<cr>", { desc = "disable Ill
 keymap.set("i", "jk", "<esc>")
 -- Paste over currently selected text without yanking it
 keymap.set("v", "p", '"_dP', { silent = true })
+keymap.set("n", "<leader>t", "<cmd>ToggleTerm<cr>", { desc = "ToggleTerm" })

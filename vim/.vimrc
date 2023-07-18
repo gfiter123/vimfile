@@ -324,6 +324,8 @@ Plug 'derekwyatt/vim-fswitch'
 Plug 'ycm-core/YouCompleteMe'		       " 代码补全
 Plug 'jiangmiao/auto-pairs'
 Plug 'ludovicchabant/vim-gutentags'        "异步自动生成tags
+Plug 'skywind3000/gutentags_plus'
+Plug 'skywind3000/vim-preview'
 
 
 
@@ -375,7 +377,7 @@ Plug 'tpope/vim-surround' "文本添加ysiw( 括号,引号
 Plug 'tpope/vim-repeat' "文本添加ysiw( 括号,引号
 "Plug 'godlygeek/tabular' " :Tab/= 以=等号对对齐
 "Plug 'gcmt/wildfire.vim' " 快速选择文本，在V模式下, 按i'选择''包含的文本,  i) i] i} ip
-Plug 'scrooloose/nerdcommenter' "<space>cc注释
+Plug 'tpope/vim-commentary' "gcc注释
 
 " Dependencies
 Plug 'MarcWeber/vim-addon-mw-utils'
@@ -514,7 +516,8 @@ let g:gutentags_project_root = ['.root', '.svn', '.git', '.project']
 
 " 所生成的数据文件的名称 "
 let g:gutentags_ctags_tagfile = '.tags'
-
+" enable gtags module
+let g:gutentags_modules = ['ctags', 'gtags_cscope']
 " 将自动生成的 tags 文件全部放入 ~/.cache/tags 目录中，避免污染工程目录 "
 let s:vim_tags = expand('~/.cache/tags')
 let g:gutentags_cache_dir = s:vim_tags
@@ -523,12 +526,15 @@ if !isdirectory(s:vim_tags)
    silent! call mkdir(s:vim_tags, 'p')
 endif
 
+let g:gutentags_plus_switch = 1
+let g:gutentags_define_advanced_commands = 1
+
 " 配置 ctags 的参数 "
 let g:gutentags_ctags_extra_args = ['--fields=+niazS', '--extra=+q']
 let g:gutentags_ctags_extra_args += ['--c++-kinds=+pxI']
 let g:gutentags_ctags_extra_args += ['--c-kinds=+px']
 
-
+"
 " 'derekwyatt/vim-protodef' 先复到剪切板再用<leader>PP生成定义
 " 'derekwyatt/vim-fswitch'<leader>of 
 nmap <silent> <Leader>of :FSHere<cr>

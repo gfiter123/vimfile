@@ -132,7 +132,7 @@ local terminals = {}
 function M.float_term(cmd, opts)
   opts = vim.tbl_deep_extend("force", {
     ft = "lazyterm",
-    size = { width = 0.9, height = 0.9 },
+    size = { width = 0.5, height = 0.5 },
   }, opts or {}, { persistent = true })
   ---@cast opts LazyCmdOptions|{interactive?:boolean, esc_esc?:false}
 
@@ -247,6 +247,3 @@ function M.lsp_disable(server, cond)
       config.enabled = false
     end
   end)
-end
-
-return M
