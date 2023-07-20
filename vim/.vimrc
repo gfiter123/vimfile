@@ -513,7 +513,6 @@ let g:NERDTreeGitSatusIndicatorMapCustom = {
 "
 " gutentags搜索工程目录的标志，碰到这些文件/目录名就停止向上一级目录递归 "
 let g:gutentags_project_root = ['.root', '.svn', '.git', '.project']
-
 " 所生成的数据文件的名称 "
 let g:gutentags_ctags_tagfile = '.tags'
 " enable gtags module
@@ -533,7 +532,13 @@ let g:gutentags_define_advanced_commands = 1
 let g:gutentags_ctags_extra_args = ['--fields=+niazS', '--extra=+q']
 let g:gutentags_ctags_extra_args += ['--c++-kinds=+pxI']
 let g:gutentags_ctags_extra_args += ['--c-kinds=+px']
-
+let g:gutentags_ctags_extra_args += ['--output-format=e-ctags']
+noremap <m-u> :PreviewScroll -1<cr>
+noremap <m-d> :PreviewScroll +1<cr>
+inoremap <m-u> <c-\><c-o>:PreviewScroll -1<cr>
+inoremap <m-d> <c-\><c-o>:PreviewScroll +1<cr>
+autocmd FileType qf nnoremap <silent><buffer> p :PreviewQuickfix<cr>
+autocmd FileType qf nnoremap <silent><buffer> P :PreviewClose<cr>
 "
 " 'derekwyatt/vim-protodef' 先复到剪切板再用<leader>PP生成定义
 " 'derekwyatt/vim-fswitch'<leader>of 
