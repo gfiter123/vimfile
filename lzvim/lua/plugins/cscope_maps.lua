@@ -2,6 +2,8 @@ return {
   {
     "gifter123/cscope_maps.nvim",
     enabled = true,
+    lazy = true,
+    ft = { "h", "cpp", "hpp", "c", "cc", "java" },
     dependencies = {
       "folke/which-key.nvim", -- optional [for whichkey hints]
       "nvim-telescope/telescope.nvim", -- optional [for picker="telescope"]
@@ -35,6 +37,9 @@ return {
   {
     "dhananjaylatkar/vim-gutentags",
     enabled = true,
+    lazy = true,
+    ft = { "h", "cpp", "hpp", "c", "cc", "java" },
+
     dependencies = { "cscope_maps.nvim" },
     config = function()
       vim.g.gutentags_project_root = { ".root", ".svn", ".git", ".project" }
