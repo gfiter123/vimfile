@@ -19,6 +19,8 @@ set number               " 开启行号显示
 set relativenumber      " 显示光标所在的当前行的行号，其他行都为相对于该  行的相对行号
 set wrap                "自动折行
 set wrapmargin=2        "自动折行右边空格
+set spell               "打开拼写检查
+set spelllang=en,cjk    "设置拼写检查为中,日,韩,英文
 "set linebreak           "遇到空格才折行
 set cursorline           " 高亮显示当前行
 set whichwrap+=<,>,h,l   " 设置光标键跨行
@@ -554,9 +556,9 @@ let g:disable_protodef_sorting=1
 " ===
 " === You Complete ME
 " ===
-nnoremap gd :YcmCompleter GoToDefinitionElseDeclaration<CR>
-"nnoremap gd :YcmCompleter GoToImplementationElseDeclaration<CR>
-nnoremap gD :YcmCompleter GoToDeclaration<CR>
+
+nnoremap gd g<C-]>
+nnoremap gD :YcmCompleter GoToDefinitionElseDeclaration<CR>
 nnoremap gh :YcmCompleter GetDoc<CR>
 nnoremap gt :YcmCompleter GetType<CR>
 nnoremap gr :YcmCompleter GoToReferences<CR>
@@ -581,6 +583,9 @@ let g:ycm_use_ultisnips_completer = 1
 ""设置使用goto跳转快捷键时，新窗口的打开方式可以设置为’same-buffer’,
 ""‘horizontal-split’, ‘vertical-split’, 'new-tab’或 ‘new-or-existing-tab’
 let g:ycm_goto_buffer_command = 'same-buffer'
+inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<CR>"             " 回车即选中当前项
+let g:ycm_key_list_select_completion = ['<c-n>', '<Down>']  " 映射按键,没有这个会拦截掉tab, 导致其他插件的tab不能用.
+let g:ycm_key_list_previous_completion = ['<c-p>', '<Up>']
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "其他东东
