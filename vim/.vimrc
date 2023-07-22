@@ -119,7 +119,7 @@ nnoremap Q :q!<enter>
 nnoremap < <<
 nnoremap > >>
 
-map s <nop>
+" map s <nop>
 map <c-s> :w<CR>
 nmap <leader>w :w!<cr>
 nmap <leader>f :find<cr>
@@ -215,8 +215,8 @@ map <up> :res +5<CR>
 map <down> :res -5<CR>
 map <left> :vertical resize-5<CR>
 map <right> :vertical resize+5<CR>
-map sv <C-w>t<C-w>H         "切换分屏为上下
-map sh <C-w>t<C-w>K         "切换分屏为左右
+map <leader>sv <C-w>t<C-w>H         "切换分屏为上下
+map <leader>sh <C-w>t<C-w>K         "切换分屏为左右
 
 " toggle relative numbering
 nnoremap <LEADER><F1> :set rnu!<CR>
@@ -341,7 +341,6 @@ Plug 'skywind3000/vim-preview'
 "sudo apt install ctags cscope
 "make tags cscope TAGS
 "
-"installing.....
 
 Plug 'Lokaltog/vim-easymotion'
 
@@ -711,7 +710,12 @@ let g:SignatureMap = {
         \ 'ListLocalMarks'     :  "m/",
         \ 'ListLocalMarkers'   :  "m?"
         \ }
+" ===
+" === easymotion
+" ===
 
+nmap s <Plug>(easymotion-bd-f)
+vmap f <Plug>(easymotion-bd-f)
 " ===
 " === Undotree 撤消
 " ===
