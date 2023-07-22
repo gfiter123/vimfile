@@ -788,16 +788,16 @@ let g:Lf_WorkingDirectoryMode = 'c'
 nnoremap <leader>ff :LeaderfFile<CR>
 
 " 在项目中搜索光标所在单词
-nnoremap <leader>fg :<c-u><c-r>=printf("Leaderf! rg --regexMode -F -e %s", expand("<cword>"))<cr><cr>
+nnoremap <leader>fs :<c-u><c-r>=printf("Leaderf! rg --regexMode -F -e %s", expand("<cword>"))<cr><cr>
 " 在项目中搜索光标所在单词
-xnoremap <leader>fg :<c-u><c-r>=printf("Leaderf! rg --regexMode -F -e %s", leaderf#Rg#visual())<cr><cr>
+xnoremap <leader>fs :<c-u><c-r>=printf("Leaderf! rg --regexMode -F -e %s", leaderf#Rg#visual())<cr><cr>
 " 使用光标所在单词生成搜索命令（但不执行，可先修改再执行）
 "nnoremap <leader>fg :<c-u><c-r>=printf("Leaderf! rg --regexMode -e \"%s\"", expand("<cword>"))<cr><left><c-f>0f"l
 "xnoremap <leader>fg :<c-u><c-r>=printf("Leaderf! rg --regexMode -e %s", leaderf#Rg#visual())<cr><left><c-f>0f"l
 
 " 生成空的项目内搜索命令（自行输入关键字执行）
-nnoremap <leader>fs :<c-u><c-r>=printf("Leaderf rg --regexMode --stayOpen -e \"\"")<cr><left>
-xnoremap <leader>fs :<c-u><c-r>=printf("Leaderf! rg --regexMode -e %s", leaderf#Rg#visual())<cr><left><c-f>0f"l
+nnoremap <leader>fg :<c-u><c-r>=printf("Leaderf rg --regexMode --stayOpen -e \"\"")<cr><left>
+xnoremap <leader>fg :<c-u><c-r>=printf("Leaderf! rg --regexMode -e %s", leaderf#Rg#visual())<cr><left><c-f>0f"l
 
 " 重新唤出搜索结果窗口
 nnoremap <leader>fjk :<c-u>Leaderf! rg --recall<cr>

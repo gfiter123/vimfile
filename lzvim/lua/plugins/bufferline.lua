@@ -2,6 +2,7 @@
 return {
   "akinsho/bufferline.nvim",
   keys = {
+    -- <leader>bp BufferPin <leader>bP close not pin
     { "<leader>bj", "<cmd>BufferLinePick<cr>", desc = "BufferPick" },
     { "<leader>1", "<cmd>BufferLineGoToBuffer 1<cr>", desc = "BufferGoTo 1" },
     { "<leader>2", "<cmd>BufferLineGoToBuffer 2<cr>", desc = "BufferGoTo 2" },
