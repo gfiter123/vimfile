@@ -21,3 +21,8 @@ keymap.set(
   ":lua require'telescope.builtin'.live_grep(require('telescope.themes').get_ivy({}))<cr>",
   { desc = "Telescope live_grep" }
 )
+keymap.set("n", "<F5>", function() require("dap").continue() end, {desc = "Run or Continue"})
+keymap.set("n", "<F4>", function() require("dap").run_to_cursor() end, {desc = "Run to Cursor"})
+keymap.set("n", "<F9>", function() require("dap").toggle_breakpoint() end, {desc = "Toggle Breakpoint"})
+keymap.set("n", "<F10>", function() require("dap").step_over() end, {desc = "Toggle Breakpoint"})
+keymap.set("n", "<F11>", function() require("dap").step_into() end, {desc = "Toggle Breakpoint"})

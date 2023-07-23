@@ -1,7 +1,7 @@
 
 "C，C++ 按F5编译运行
 
-map <F5> :call CompileRunGcc()<CR>
+map <F7> :call CompileRunGcc()<CR>
 func! CompileRunGcc()
     exec "w"
     if &filetype == 'c'
