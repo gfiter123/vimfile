@@ -160,17 +160,20 @@ map <M-F2> :tabnew<CR>
 
 
 
-"C，C++ 按F5编译运行
+"C，C++ 按F7编译运行
 
-map <F5> :call CompileRunGcc()<CR>
+map <F7> :call CompileRunGcc()<CR>
 func! CompileRunGcc()
     exec "w"
     if &filetype == 'c'
         exec "!g++ % -o %<"
         exec "! ./%<"
     elseif &filetype == 'cpp'
-        exec "!g++ % -o %<"
-        exec "! ./%<"
+        set makeprg=./build.sh
+        exec "make"
+        " exec "copen"
+        " exec "!g++ % -o %<"
+        " exec "! ./%<"
     elseif &filetype == 'java'
         exec "!c %"
         exec "! %<"
@@ -192,7 +195,7 @@ endfunc
 ""实用设置
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " quickfix模式
-autocmd FileType c, map <buffer> <leader><space> :w<cr>:make<cr>
+autocmd FileType c,cpp, map <buffer> <leader><space> :w<cr>:make<cr>
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " 设置分屏
@@ -391,6 +394,7 @@ endif
 Plug 'tmux-plugins/vim-tmux-focus-events'
 Plug 'roxma/vim-tmux-clipboard'
 Plug 'AndrewRadev/switch.vim'
+Plug 'puremourning/vimspector',{'do':'./install_gadget.py --enable-c'}
 call plug#end()
 
 
@@ -875,6 +879,27 @@ let b:switch_custom_definitions = [
       \     },
       \   }
       \ ]
+
+
+"===========
+"===dap=====
+"===========
+let g:vimspector_enable_mappings = 'VISUAL_STUDIO'
+map <F12> :VimspectorReset<cr>
+" F5	<Plug>VimspectorContinue
+" Shift F5	<Plug>VimspectorStop
+" Ctrl Shift F5	<Plug>VimspectorRestart
+" F6	<Plug>VimspectorPause
+" F8	<Plug>VimspectorJumpToNextBreakpoint
+" Shift F8	<Plug>VimspectorJumpToPreviousBreakpoint
+" F9	<Plug>VimspectorToggleBreakpoint
+" Shift F9	<Plug>VimspectorAddFunctionBreakpoint
+" F10	<Plug>VimspectorStepOver
+" F11	<Plug>VimspectorStepInto
+" Shift F11	<Plug>VimspectorStepOut
+" Alt 8	<Plug>VimspectorDisassemble
+
+
 " Add header comment for bash shell and python file automatically.
 autocmd BufNewFile *.sh,*.py,*.h,*.c,*.cpp exec ":call SetTitle()"
 func SetTitle()

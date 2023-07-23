@@ -38,7 +38,7 @@ return {
     "dhananjaylatkar/vim-gutentags",
     enabled = true,
     -- lazy = true,
-    -- ft = { "h", "cpp", "hpp", "c", "cc", "java" },
+    ft = { "h", "cpp", "hpp", "c", "cc", "java" },
 
     dependencies = { "cscope_maps.nvim" },
     config = function()
