@@ -2,7 +2,7 @@ return {
   {
     "gifter123/cscope_maps.nvim",
     enabled = true,
-    lazy = true,
+    -- lazy = true,
     ft = { "h", "cpp", "hpp", "c", "cc", "java" },
     dependencies = {
       "folke/which-key.nvim", -- optional [for whichkey hints]
@@ -55,7 +55,7 @@ return {
 
       ]])
       vim.g.gutentags_cache_dir = vim.g.xh_vim_tags
-      -- vim.g.gutentags_file_list_command = "fd -e c -e h"
+      vim.g.gutentags_file_list_command = "fd -e c -e h -e cpp"
       vim.g.gutentags_ctags_extra_args = { "--fields=+niazS", "--extra=+q", "--c++-kinds=+pxI", "--c-kinds=+px" }
       vim.g.gutentags_define_advanced_commands = 1
       -- vim.g.gutentags_trace = 1
