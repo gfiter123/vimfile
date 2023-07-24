@@ -10,6 +10,7 @@ return {
     -- 反义单词组
     local switch_words = {
       { "true", "false" },
+      { "shared", "static" },
       { "on", "off" },
       { "yes", "no" },
       { "up", "down" },

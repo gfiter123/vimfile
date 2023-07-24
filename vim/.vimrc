@@ -121,6 +121,13 @@ nnoremap > >>
 
 " map s <nop>
 map <c-s> :w<CR>
+imap jk <esc>
+
+inoremap <C-L> <Right>
+inoremap <C-H> <Left>
+inoremap <C-J> <Down>
+inoremap <C-K> <Up>
+
 nmap <leader>w :w!<cr>
 nmap <leader>f :find<cr>
 map R :source $MYVIMRC<CR>
@@ -151,7 +158,7 @@ nnoremap <F2> :%s/\r//g<CR>
 "比较文件
 nnoremap <F3> :vert diffsplit
 nnoremap <F4> :vert terminal<CR>
-nnoremap <F6> :terminal<CR>
+"nnoremap <F6> :terminal<CR>
 " 取消警告音
 set noerrorbells visualbell t_vb=
 
@@ -867,6 +874,7 @@ let g:switch_custom_definitions =
 \		switch#NormalizedCase([ '==', '!=' ]),
 \		switch#NormalizedCase([ '&&', '||' ]),
 \		switch#NormalizedCase([ 'push', 'pop' ]),
+\		switch#NormalizedCase([ 'shared', 'static' ]),
 \	]
 "驼峰和下划线切换
 let b:switch_custom_definitions = [
