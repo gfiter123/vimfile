@@ -119,7 +119,7 @@ nnoremap Q :q!<enter>
 nnoremap < <<
 nnoremap > >>
 
-" map s <nop>
+map q <nop>
 map <c-s> :w<CR>
 imap jk <esc>
 
@@ -153,11 +153,14 @@ vmap p "_dP
 "nnoremap <F2> :%s/\s\+$//g<CR>
 "nnoremap <F2> :g/^\s*$/d<CR>
 "去M结尾
-nnoremap <F2> :%s/\r//g<CR>
+" nnoremap <F2> :%s/\r//g<CR>
 
 "比较文件
-nnoremap <F3> :vert diffsplit
-nnoremap <F4> :vert terminal<CR>
+nnoremap <F2> :vert diffsplit
+
+nnoremap <F3> :source Session.vim<cr>
+nnoremap <F4> :mks!<cr>
+nnoremap <leader>t :vert terminal<CR>
 "nnoremap <F6> :terminal<CR>
 " 取消警告音
 set noerrorbells visualbell t_vb=
@@ -463,24 +466,24 @@ map tt :NERDTreeToggle<CR>
 map <leader>e :NERDTreeToggle<CR>
 nnoremap <Leader>ee :NERDTreeFind<CR>
 " Start NERDTree. If a file is specified, move the cursor to its window.
-autocmd StdinReadPre * let s:std_in=1
-autocmd VimEnter * NERDTree | if argc() > 0 || exists("s:std_in") | wincmd p | endif
+" autocmd StdinReadPre * let s:std_in=1
+" autocmd VimEnter * NERDTree | if argc() > 0 || exists("s:std_in") | wincmd p | endif
 " Exit Vim if NERDTree is the only window remaining in the only tab.
-autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() | quit | endif
+" autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() | quit | endif
 " Close the tab if NERDTree is the only window remaining in it.
-autocmd BufEnter * if winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() | quit | endif
+" autocmd BufEnter * if winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() | quit | endif
 " If another buffer tries to replace NERDTree, put it in the other window, and bring back NERDTree.
-autocmd BufEnter * if bufname('#') =~ 'NERD_tree_\d\+' && bufname('%') !~ 'NERD_tree_\d\+' && winnr('$') > 1 |
-      \ let buf=bufnr() | buffer# | execute "normal! \<C-W>w" | execute 'buffer'.buf | endif 
+" autocmd BufEnter * if bufname('#') =~ 'NERD_tree_\d\+' && bufname('%') !~ 'NERD_tree_\d\+' && winnr('$') > 1 |
+"       \ let buf=bufnr() | buffer# | execute "normal! \<C-W>w" | execute 'buffer'.buf | endif 
 " Mirror the NERDTree before showing it. This makes it the same on all tabs.
-nnoremap <leader>m :NERDTreeMirror<CR>:NERDTreeFocus<CR>
+" nnoremap <leader>m :NERDTreeMirror<CR>:NERDTreeFocus<CR>
 " Start NERDTree when Vim starts with a directory argument.
-autocmd StdinReadPre * let s:std_in=1
-autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists('s:std_in') |
-    \ execute 'NERDTree' argv()[0] | wincmd p | enew | execute 'cd '.argv()[0] | endif 
+" autocmd StdinReadPre * let s:std_in=1
+" autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists('s:std_in') |
+    " \ execute 'NERDTree' argv()[0] | wincmd p | enew | execute 'cd '.argv()[0] | endif 
 " Start NERDTree, unless a file or session is specified, eg. vim -S session_file.vim.
-autocmd StdinReadPre * let s:std_in=1
-autocmd VimEnter * if argc() == 0 && !exists('s:std_in') && v:this_session == '' | NERDTree | endif
+" autocmd StdinReadPre * let s:std_in=1
+" autocmd VimEnter * if argc() == 0 && !exists('s:std_in') && v:this_session == '' | NERDTree | endif
 
 let NERDTreeMapOpenExpl = ""
 let NERDTreeMapUpdirKeepOpen = "l"

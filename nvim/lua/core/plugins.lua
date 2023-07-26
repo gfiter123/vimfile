@@ -53,8 +53,6 @@ return packer.startup(function(use)
   use("ahmedkhalf/project.nvim") -- project manager
   use({ "lukas-reineke/indent-blankline.nvim" })
 
-  -- 注释 <leader>cc 反注释 <leader>cu
-  --use({ "scrooloose/nerdcommenter" })
 
   -- use({ "BurntSushi/ripgrep" }) --requires
   -- use({ "p00f/nvim-ts-rainbow" })
