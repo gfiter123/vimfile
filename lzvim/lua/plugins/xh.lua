@@ -1,5 +1,6 @@
 return {
   {
+    -- 高度显示当前搜索的计数
     "kevinhwang91/nvim-hlslens",
     keys = {
       { "n", [[<Cmd>execute('normal! ' . v:count1 . 'n')<CR><Cmd>lua require('hlslens').start()<CR>]], desc = "next" },
@@ -11,8 +12,12 @@ return {
     },
   },
   {
+    -- 显示marks
     "chentoast/marks.nvim",
     event = { "BufReadPost" },
+    keys = {
+      { "m/", "<cmd>MarksListAll", { noremap = true, silent = true } },
+    },
     opts = {
       -- whether to map keybinds or not. default true
       default_mappings = true,
@@ -46,6 +51,24 @@ return {
         annotate = false,
       },
       mappings = {},
+      -- mx=Set mark x
+      -- m,=Set the next available alphabetical (lowercase) mark
+      -- m;              Toggle the next available mark at the current line
+      -- dmx             Delete mark x
+      -- dm-             Delete all marks on the current line
+      -- dm<space>       Delete all marks in the current buffer
+      -- m]              Move to next mark
+      -- m[              Move to previous mark
+      -- m:              Preview mark. This will prompt you for a specific mark to
+      --                 preview; press <cr> to preview the next mark.
+
+      -- m[0-9]          Add a bookmark from bookmark group[0-9].
+      -- dm[0-9]         Delete all bookmarks from bookmark group[0-9].
+      -- m}              Move to the next bookmark having the same type as the bookmark under
+      --                 the cursor. Works across buffers.
+      -- m{              Move to the previous bookmark having the same type as the bookmark under
+      --                 the cursor. Works across buffers.
+      -- dm=             Delete the bookmark under the cursor.
     },
   },
   {
@@ -94,4 +117,69 @@ return {
       vim.list_extend(opts.items, items)
     end,
   },
+  {
+    "code-biscuits/nvim-biscuits", -- AST enhance 大括号提示, require treesitter
+    dependencies = {
+      {
+        "nvim-treesitter/nvim-treesitter",
+        run = ":TSUpdate",
+      },
+    },
+    event = { "BufReadPost", "InsertLeave" },
+    opts = {
+      toggle_keybind = "<leader>ub",
+      show_on_start = false, -- defaults to false
+      cursor_line_only = true,
+      default_config = {
+        max_length = 12,
+        min_distance = 5,
+        prefix_string = " ✨ ",
+      },
+      language_config = {
+        -- cpp = {
+        --   prefix_string = " // "
+        -- },
+        -- javascript = {
+        --   prefix_string = " ✨ ",
+        --   max_length = 80
+        -- },
+        python = {
+          disabled = true,
+        },
+      },
+    },
+  },
+	{
+		"ldelossa/litee.nvim",
+		config = function()
+			require("litee.lib").setup({})
+		end,
+	},
+	{ -- calltree
+		"ldelossa/litee-calltree.nvim",
+		config = function()
+			require("litee.calltree").setup({
+				-- note: the plugin is in-progressing
+				on_open = "pannel", -- pannel | popout
+				hide_cursor = false,
+				keymaps = {
+					expand = "o",
+					collapse = "zc",
+					collapse_all = "zm",
+					jump = "<cr>",
+					jump_split = "s",
+					jump_vsplit = "v",
+					jump_tab = "t",
+					hover = "i",
+					details = "d",
+					close = "x",
+					close_panel_pop_out = "<c-c>",
+					help = "?",
+					hide = "h",
+					switch = "s",
+					focus = "f",
+				},
+			})
+		end,
+	},
 }

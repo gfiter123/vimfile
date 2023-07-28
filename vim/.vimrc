@@ -116,8 +116,11 @@ nnoremap dL d$
 nnoremap dH d0
 
 nnoremap Q :q!<enter>
+
 nnoremap < <<
 nnoremap > >>
+vnoremap < <<
+vnoremap > >>
 
 map q <nop>
 map <c-s> :w<CR>

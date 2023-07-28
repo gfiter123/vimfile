@@ -53,7 +53,6 @@ return packer.startup(function(use)
   use("ahmedkhalf/project.nvim") -- project manager
   use({ "lukas-reineke/indent-blankline.nvim" })
 
-
   -- use({ "BurntSushi/ripgrep" }) --requires
   -- use({ "p00f/nvim-ts-rainbow" })
 
