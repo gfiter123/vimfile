@@ -140,7 +140,12 @@ map R :source $MYVIMRC<CR>
 noremap = nzz
 noremap - Nzz
 noremap <LEADER><CR> :nohlsearch<CR> "取消高亮
-nmap Q :qa<CR>
+nmap Q :mks! Session.vim<cr>:wqa<CR>
+autocmd VimEnter * 
+if exists('./Session.vim') 
+  :source Session.vim<cr>
+endif
+
 
 " 映射全选+复制 ctrl+a
 map <C-A> ggVG
@@ -162,7 +167,7 @@ vmap p "_dP
 nnoremap <F2> :vert diffsplit
 
 nnoremap <F3> :source Session.vim<cr>
-nnoremap <F4> :mks!<cr>
+nnoremap <F4> :mks! Session.vim<cr>
 nnoremap <leader>t :vert terminal<CR>
 "nnoremap <F6> :terminal<CR>
 " 取消警告音
