@@ -172,4 +172,11 @@ return {
       })
     end,
   },
+  {
+    "m-demare/hlargs.nvim",
+    event = { "BufReadPost", "InsertLeave" },
+    config = function()
+      require("hlargs").setup()
+    end
+  },
 }
