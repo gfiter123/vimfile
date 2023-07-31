@@ -9,9 +9,9 @@ local augroup = vim.api.nvim_create_augroup
 -- NOTE: VimSuspend
 local cursorGrp = augroup("RestroeCursorShapeOnExit", { clear = true })
 autocmd("VimLeave", {
-	pattern = "*",
-	command = "set guicursor=a:ver25",
-	group = cursorGrp,
+  pattern = "*",
+  command = "set guicursor=a:ver25",
+  group = cursorGrp,
 })
 
 -- 进入插入模式时自动切换中文输入法
@@ -31,7 +31,12 @@ autocmd("VimLeave", {
 
 -- 关闭新行自动注释
 autocmd("BufEnter", {
-	pattern = "*",
-	command = "set fo-=c fo-=r fo-=o",
+  pattern = "*",
+  command = "set fo-=c fo-=r fo-=o",
 })
 
+--修改cpp的注释为//
+vim.cmd([[
+  autocmd FileType python,shell,coffee set commentstring=#\ %s
+  autocmd FileType java,c,cpp set commentstring=//\ %s
+]])
