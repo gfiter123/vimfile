@@ -40,7 +40,7 @@ set matchtime=1     "高亮显示时间
 "let &t_ut=''		          " 解决终端颜色配置的一些问题
 set list		            " 显示空格
 set listchars=tab:▸\ ,trail:▫
-set iskeyword+=_,$,@,%,#,-   " 带有如下符号的单词不要被换行分割
+set iskeyword+=_,$,@,%,#   " 带有如下符号的单词不要被换行分割
 " save read-only files 以:Sudow保存只读文件 
 command -nargs=0 Sudow w !sudo tee % >/dev/null
 "make 运行
