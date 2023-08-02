@@ -141,10 +141,10 @@ noremap = nzz
 noremap - Nzz
 noremap <LEADER><CR> :nohlsearch<CR> "取消高亮
 nmap Q :mks! Session.vim<cr>:wqa<CR>
-autocmd VimEnter * 
-if exists('./Session.vim') 
-  :source Session.vim<cr>
-endif
+" autocmd VimEnter * 
+" if exists('./Session.vim') 
+"   :source Session.vim<cr>
+" endif
 
 
 " 映射全选+复制 ctrl+a
@@ -510,6 +510,7 @@ let g:clang_format#command = 'clang-format'
 nmap <F1> :ClangFormat<cr>
 autocmd FileType c,cpp ClangFormatAutoEnable
 let g:clang_format#detect_style_file = 1
+let g:clang_format#enable_fallback_style = 0
 
 
 
