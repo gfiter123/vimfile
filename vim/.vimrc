@@ -222,10 +222,10 @@ map <leader>sl :set splitright<CR>:vsplit<CR>
 map <leader>sh :set nosplitright<CR>:vsplit<CR>
 map <leader>sk :set nosplitbelow<CR>:split<CR>
 map <leader>sj :set splitbelow<CR>:split<CR>
-map <C-l> <C-w>l
-map <C-k> <C-w>k
-map <C-h> <C-w>h
-map <C-j> <C-w>j
+nnoremap <C-l> <C-w>l
+nnoremap <C-k> <C-w>k
+nnoremap <C-h> <C-w>h
+nnoremap <C-j> <C-w>j
 tnoremap <ESC> <c-\><c-n>
 tnoremap <c-q> <c-w>:hide<cr>
 tnoremap <C-l> <C-w>l
@@ -904,6 +904,8 @@ let b:switch_custom_definitions = [
       \     },
       \   }
       \ ]
+
+"
 
 
 "===========
