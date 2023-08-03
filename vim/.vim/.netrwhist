@@ -1,5 +1,7 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhistcnt =4
+let g:netrw_dirhistcnt =6
+let g:netrw_dirhist_6='/mnt/code/xuhong/development/hi3531d_mpp/mpp/sample/audio'
+let g:netrw_dirhist_5='/mnt/code/xuhong/development/hi3531d_mpp/mpp/sample/bitrate_auto'
 let g:netrw_dirhist_4='/mnt/code/xuhong/development/hi3531d_mpp/open_source'
 let g:netrw_dirhist_3='/mnt/code/xuhong/development/hi3531d_mpp'
 let g:netrw_dirhist_2='/home/gifter/vimfile/mylazyvim/lua'
@@ -8,5 +10,3 @@ let g:netrw_dirhist_0='/home/gifter/cscope_maps.nvim/lua'
 let g:netrw_dirhist_9='/home/gifter/cscope_maps.nvim'
 let g:netrw_dirhist_8='/home/gifter/hi3531a/osdrv/opensource'
 let g:netrw_dirhist_7='/home/gifter/vimfile/lzvim/lua/plugins'
-let g:netrw_dirhist_6='/home/gifter/.local/share/nvim/lazy/cppassist.nvim/lua/cppassist'
-let g:netrw_dirhist_5='/home/gifter/.local/share/nvim/lazy/cppassist.nvim/lua'
