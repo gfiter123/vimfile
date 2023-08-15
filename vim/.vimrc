@@ -123,13 +123,14 @@ vnoremap < <<
 vnoremap > >>
 
 map q <nop>
+imap <c-j> <nop>
 map <c-s> :w<CR>
 imap jk <esc>
-
-inoremap <C-L> <Right>
-inoremap <C-H> <Left>
-inoremap <C-J> <Down>
-inoremap <C-K> <Up>
+imap :w <esc>:w<cr>
+inoremap <C-l> <Right>
+inoremap <C-h> <Left>
+inoremap <C-j> <Down>
+inoremap <C-k> <Up>
 
 nmap <leader>w :w!<cr>
 nmap <leader>f :find<cr>
@@ -183,13 +184,23 @@ map <M-F2> :tabnew<CR>
 map <F7> :call CompileRunGcc()<CR>
 func! CompileRunGcc()
     exec "w"
+    " if &filetype == 'c'
+    "     exec "!g++ % -o %<"
+    "     exec "! ./%<"
+    " elseif &filetype == 'cpp'
+    "     set makeprg=./build.sh
+    "     exec "make"
+    "     " exec "copen"
+    "     " exec "!g++ % -o %<"
+    "     " exec "! ./%<"
     if &filetype == 'c'
-        exec "!g++ % -o %<"
-        exec "! ./%<"
-    elseif &filetype == 'cpp'
-        set makeprg=./build.sh
+        set makeprg=./build/buildarm.sh
         exec "make"
-        " exec "copen"
+        exec "copen"
+    elseif &filetype == 'cpp'
+        set makeprg=./build/buildarm.sh
+        exec "make"
+        exec "copen"
         " exec "!g++ % -o %<"
         " exec "! ./%<"
     elseif &filetype == 'java'
@@ -904,8 +915,6 @@ let b:switch_custom_definitions = [
       \     },
       \   }
       \ ]
-
-"
 
 
 "===========

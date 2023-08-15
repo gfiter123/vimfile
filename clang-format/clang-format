@@ -13,13 +13,14 @@ AlignEscapedNewlines: Left
 AlignOperands: true
 AlignTrailingComments: true
 AllowAllArgumentsOnNextLine: false
-AllowAllConstructorInitializersOnNextLine: true
+AllowAllConstructorInitializersOnNextLine: false
 #函数参数换行
 # AllowAllParametersOfDeclarationOnNextLine: true
 #if() return 放到一行默认Never,Empty,Inline,all
 AllowShortBlocksOnASingleLine: Empty
 # AllowShortCaseLabelsOnASingleLine: false
 # AllowShortFunctionsOnASingleLine: All
+AllowShortFunctionsOnASingleLine: false
 # AllowShortLambdasOnASingleLine: All
 # AllowShortIfStatementsOnASingleLine: WithoutElse
 AllowShortIfStatementsOnASingleLine: Never
