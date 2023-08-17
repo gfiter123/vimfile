@@ -30,7 +30,9 @@ set history=8192			      " 设置历史记录条数
 "共享剪贴板使用vim --version |grep clipboard查看是否支持
 "如果不支持,sudo apt install vim-gtk
 set clipboard+=unnamed       
-"set mouse=a               "使用鼠标
+set mouse=a               "使用鼠标
+set selection=exclusive
+set selectmode=mouse,key
 
 set report=0        " 带有如下符号的单词不要被换行分割
 set fillchars=vert:\ ,stl:\ ,stlnc:\  " 在被分割的窗口间显示空白，便于阅读
@@ -162,7 +164,7 @@ vmap p "_dP
 "nnoremap <F2> :%s/\s\+$//g<CR>
 "nnoremap <F2> :g/^\s*$/d<CR>
 "去M结尾
-" nnoremap <F2> :%s/\r//g<CR>
+nnoremap <leader>dm :%s/\r//g<CR>
 
 "比较文件
 nnoremap <F2> :vert diffsplit
@@ -510,7 +512,8 @@ let NERDTreeMapOpenVSplit = "v"
 let NERDTreeMapCloseDir = "n"
 let NERDTreeMapChangeRoot = "y"
 let NERDTreeCustomOpenArgs = {'file': {'reuse':'currenttab', 'where':'p', 'keepopen':1, 'stay':0}}
-
+""窗口是否显示行号
+let g:NERDTreeShowLineNumbers=1
 
 
 
