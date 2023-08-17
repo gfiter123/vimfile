@@ -340,7 +340,8 @@ call plug#begin('~/.vim/plugged')
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'jlanzarotta/bufexplorer'
-Plug 'connorholyday/vim-snazzy'
+" Plug 'connorholyday/vim-snazzy'
+Plug 'tyrannicaltoucan/vim-quantum'
 Plug 'rhysd/vim-clang-format'
 
 
@@ -429,14 +430,19 @@ Plug 'puremourning/vimspector',{'do':'./install_gadget.py --enable-c'}
 call plug#end()
 
 
-let g:SnazzyTransparent = 1
-color snazzy
+" let g:SnazzyTransparent = 1
+" colorscheme snazzy
+set background=dark
+set termguicolors
+colorscheme quantum
+let g:quantum_italics=1
 
 " ===
 " === airline
 " ===
 
 let g:airline_theme="dark"
+" let g:airline_theme="quantum"
 let ambiwidth=2                 "全角符号
 let g:airline_powerline_fonts = 1
 let g:airline#extensions#tabline#enabled = 1
