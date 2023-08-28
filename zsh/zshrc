@@ -104,8 +104,10 @@ source $ZSH/oh-my-zsh.sh
 alias ll='ls -l'
 alias la='ls -a'
 alias s="ssh xuhong@10.12.19.30"
-# alisa m="make -Bnwk | compiledb -o- > compile_commands.json"
-alisa m="bear -- make"
+# alias m="make -Bnwk | compiledb -o- > compile_commands.json"
+alias m='ch;bear -- make'
+alias ch='export https_proxy="";export http_proxy=""'
+alias ah='export https_proxy=http://10.12.19.31:7890;export http_proxy=http://10.12.19.31:7890'
 alias g=git
 alias ga='git add'
 alias gaa='git add --all'
