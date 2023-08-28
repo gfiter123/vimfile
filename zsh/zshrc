@@ -108,20 +108,6 @@ alias s="ssh xuhong@10.12.19.30"
 alias m='ch;bear -- make'
 alias ch='export https_proxy="";export http_proxy=""'
 alias ah='export https_proxy=http://10.12.19.31:7890;export http_proxy=http://10.12.19.31:7890'
-alias g=git
-alias ga='git add'
-alias gaa='git add --all'
-alias gb='git branch'
-alias gbD='git branch -D'
-alias gcb='git checkout -b'
-alias gd='git diff'
-alias gl='git pull'
-alias glog='git log --oneline --decorate --graph'
-alias gp='git push'
-alias gpf='git push --force-with-lease'
-alias grb='git rebase'
-alias grba='git rebase --abort'
-alias grbc='git rebase --continue'
 
 autoload bashcompinit
 bashcompinit
@@ -141,4 +127,6 @@ export http_proxy=http://10.12.19.31:7890
 alias ...='cd ../..'
 alias ....='cd ../../../'
 alias makehd='make ARCH=arm64 CROSS_COMPILE=aarch64-himix210-linux-'
+git config --add oh-my-zsh.hide-dirty 1
+git config --add oh-my-zsh.hide-status 1
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
