@@ -102,6 +102,23 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 alias ll='ls -l'
+alias la='ls -a'
+alias s="ssh xuhong@10.12.19.30"
+alias g=git
+alias ga='git add'
+alias gaa='git add --all'
+alias gb='git branch'
+alias gbD='git branch -D'
+alias gcb='git checkout -b'
+alias gd='git diff'
+alias gl='git pull'
+alias glog='git log --oneline --decorate --graph'
+alias gp='git push'
+alias gpf='git push --force-with-lease'
+alias grb='git rebase'
+alias grba='git rebase --abort'
+alias grbc='git rebase --continue'
+
 autoload bashcompinit
 bashcompinit
 neofetch

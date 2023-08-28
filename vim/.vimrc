@@ -600,7 +600,7 @@ let g:disable_protodef_sorting=1
 " === You Complete ME
 " ===
 
-nnoremap gd g<C-]>
+nnoremap gd :YcmCompleter GoToDefinition>
 nnoremap gD :YcmCompleter GoToDefinitionElseDeclaration<CR>
 nnoremap gh :YcmCompleter GetDoc<CR>
 nnoremap gt :YcmCompleter GetType<CR>
