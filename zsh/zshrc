@@ -104,6 +104,8 @@ source $ZSH/oh-my-zsh.sh
 alias ll='ls -l'
 alias la='ls -a'
 alias s="ssh xuhong@10.12.19.30"
+# alisa m="make -Bnwk | compiledb -o- > compile_commands.json"
+alisa m="bear -- make"
 alias g=git
 alias ga='git add'
 alias gaa='git add --all'
