@@ -29,7 +29,7 @@ set virtualedit=block,onemore   " 允许光标出现在最后一个字符的后�
 set history=8192			      " 设置历史记录条数
 "共享剪贴板使用vim --version |grep clipboard查看是否支持
 "如果不支持,sudo apt install vim-gtk
-set clipboard+=unnamed       
+set clipboard=unnamedplus      
 set mouse=a               "使用鼠标
 set selection=exclusive
 set selectmode=mouse,key
