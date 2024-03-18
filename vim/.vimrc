@@ -11,10 +11,10 @@ syntax on                " 自动语法高亮
 set t_Co=256             " 开启256色支持
 "set term=screen-256color
 set term=xterm-256color
-set cmdheight=1          " 设置命令行的高度
 set showcmd              " select模式下显示选中的行数
 set ruler                " 总是显示光标位置
 set laststatus=2         " 总是显示状态栏
+set cmdheight=2
 set number               " 开启行号显示
 set relativenumber      " 显示光标所在的当前行的行号，其他行都为相对于该  行的相对行号
 set wrap                "自动折行
@@ -49,7 +49,6 @@ command -nargs=0 Sudow w !sudo tee % >/dev/null
 :set makeprg=g++\ -Wall\ \ %
 
 " 是否显示状态栏。0 表示不显示，1 表示只在多窗口时显示，2 表示显示
-set laststatus=2
 set statusline=%F%m%r%h%w\ [POS=%l,%v][%p%%]\ %{strftime(\"%d/%m/%y\ -\ %H:%M\")}
 
 
@@ -64,9 +63,9 @@ set smartindent          " 智能的选择对其方式
 filetype indent on       " 自适应不同语言的智能缩进
 filetype plugin on       " 载入文件类型插件
 set expandtab            " 将制表符扩展为空格
-set tabstop=2            " 设置编辑时制表符占用空格数
-set shiftwidth=2         " 设置格式化时制表符占用空格数
-set softtabstop=2        " 设置4个空格为制表符
+set tabstop=4            " 设置编辑时制表符占用空格数
+set shiftwidth=4         " 设置格式化时制表符占用空格数
+set softtabstop=4        " 设置4个空格为制表符
 set smarttab             " 在行和段开始处使用制表符
 set backspace=2          " 使用回车键正常处理indent,eol,start等
 set sidescroll=10        " 设置向右滚动字符数
@@ -91,10 +90,6 @@ let &t_EI.="\e[1 q" "EI = NORMAL mode (ELSE)
 "let &t_EI = "\<Esc>]50;CursorShape=0\x7"
 
 
-
-set laststatus=2
-set nobackup
-set cmdheight=2
 " 自动切换工作目录。这主要用在一个 Vim 会话之中打开多个文件的情况，默认的工作目录是打开的第一个文件的目录。
 " 该配置可以将工作目录自动切换到，正在编辑的文件的目录
 "set autochdir
@@ -330,7 +325,7 @@ function! s:raw_echo(str)
   endif
 endfunction
 
-autocmd TextYankPost * call Copy()
+" autocmd TextYankPost * call Copy()
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " 插件
@@ -435,6 +430,7 @@ call plug#end()
 set background=dark
 set termguicolors
 colorscheme quantum
+set guifont=Monospace\ 22
 let g:quantum_italics=1
 
 " ===
@@ -882,7 +878,7 @@ nnoremap <leader>fr  :<c-u>Leaderf! mru<cr>:setl nowrap<cr>
 "====
 "WSL
 if !empty(glob("/mnt/c"))
-let g:im_select_command = "/mnt/e/Software/im-select/im-select.exe"
+let g:im_select_command = "/mnt/d/Software/im-select/im-select.exe"
 let g:im_select_default = "1033"
 let g:im_select_enable_focus_events = 0
 "退出插入模式时自动切换英文输入法
